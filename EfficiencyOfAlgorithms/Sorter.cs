@@ -3,7 +3,23 @@
 namespace EfficiencyOfAlgorithms; 
 
 public class Sorter {
+    [Params(10, 1000, 100_000)]
+    public int arraySize;
+    [ParamsSource(nameof(Arrays))]
+    public ArrayParam ArrayParam;
+
+    public List<ArrayParam> Arrays() => new() {
+        new ArrayParam("Random", ArraysGenerator.GenerateRandom(arraySize)),
+        new ArrayParam("Reversed", ArraysGenerator.GenerateReversed(arraySize)),
+        new ArrayParam("Sorted", ArraysGenerator.GenerateSorted(arraySize)),
+        new ArrayParam("AlmostSorted", ArraysGenerator.GenerateAlmostSorted(arraySize)),
+        new ArrayParam("FewUnique", ArraysGenerator.GenerateFewUnique(arraySize)),
+    };
+    
     [Benchmark]
+    public void InsertionSort() {
+        InsertionSort(ArrayParam.array);
+    }
     public void InsertionSort(int[] array) {
         for (int i = 1; i < array.Length; i++) {
             int key = array[i];
@@ -16,8 +32,13 @@ public class Sorter {
             array[predecessorIndex + 1] = key;
         }
     }
+
     [Benchmark]
-    public void MergeSort(int[] array, int left, int right) {
+    public void MergeSort() {
+        MergeSort(ArrayParam.array, 0, ArrayParam.array.Length - 1);
+    }
+
+    private void MergeSort(int[] array, int left, int right) {
         if (left < right) {
             int middle = left + (right - left) / 2;
             
@@ -27,6 +48,7 @@ public class Sorter {
             Merge(array, left, middle, right);
         }
     }
+    
     private void Merge(int[] arr, int left, int middle, int right) {
         // Find sizes of two
         // subarrays to be merged
@@ -84,7 +106,10 @@ public class Sorter {
     }
     
     [Benchmark]
-    public void QuickSortClassical(int[] array, int low, int high) {
+    public void QuickSortClassical() {
+        QuickSortClassical(ArrayParam.array, 0, ArrayParam.array.Length - 1);
+    }
+    private void QuickSortClassical(int[] array, int low, int high) {
         if (low < high) {
   
             // pi is partitioning index, arr[p]
@@ -125,11 +150,13 @@ public class Sorter {
         return (i + 1);
     }
     private void Swap(int[] arr, int i, int j) {
-        (arr[i], arr[j]) = (arr[j], arr[i]);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     [Benchmark]
-    public void QuickSort (int[] array) {
-        Array.Sort(array);
+    public void QuickSort () {
+        Array.Sort(ArrayParam.array);
     }
 }

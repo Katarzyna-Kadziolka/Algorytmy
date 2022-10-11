@@ -1,6 +1,6 @@
 ﻿namespace EfficiencyOfAlgorithms; 
 
-public static class ArraysGenerator {
+public class ArraysGenerator {
     
     public static int[] GenerateRandom(int size) {
         var numbers = new int[size];
