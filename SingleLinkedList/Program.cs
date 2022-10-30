@@ -1,8 +1,4 @@
 ﻿using SingleLinkedList;
 
-Node<int> head = 
-    new Node<int>(2,
-        new Node<int>(5,
-            new Node<int>(1)));
-Node<int>.AddAtEndOfSingleLinkedList<int>( -1, ref head);
+var head = Node<int>.CreateSingleLinkedList<int>(new int[] {1, 2, 3, 4} );
 Node<int>.PrintSingleLinkedList<int>(head);

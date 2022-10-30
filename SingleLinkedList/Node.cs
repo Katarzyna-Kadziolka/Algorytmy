@@ -18,8 +18,7 @@ public class Node<T>
         Console.Write("null");
     }
 
-    public static void AddAtEndOfSingleLinkedList<T>(T element, ref Node<T> head)
-    {
+    public static void AddAtEndOfSingleLinkedList<T>(T element, ref Node<T> head) {
         if (head == null) {
             head = new Node<T>(element, null);
         }
@@ -36,5 +35,16 @@ public class Node<T>
             }
             
         }
+    }
+    public static Node<T> CreateSingleLinkedList<T>(params T[] arr) {
+        if (arr == null || arr.Length == 0) return null;
+        var head = new Node<T>(arr[0], null);
+        var node = head;
+        for (int i = 1; i < arr.Length; i++) {
+            node.Next = new Node<T>(arr[i], null);
+            node = node.Next;
+        }
+
+        return head;
     }
 }
