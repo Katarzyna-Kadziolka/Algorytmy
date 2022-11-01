@@ -1,20 +1,23 @@
-﻿namespace SingleLinkedList; 
+﻿namespace SingleLinkedList;
 
-public class Node<T>
-{    
-    public T Data {get; set;}
-    public Node<T> Next {get; set;}
+public class Node<T> {
+    public T Data { get; set; }
+    public Node<T> Next { get; set; }
+
     public Node(T data, Node<T> next = null) {
-        Data = data; Next = next;
+        Data = data;
+        Next = next;
     }
-    public override string ToString() => (this==null)? "null" : $"{Data} -> ";
-    
-    public static void PrintSingleLinkedList<T>( Node<T> head ) {
+
+    public override string ToString() => (this == null) ? "null" : $"{Data} -> ";
+
+    public static void PrintSingleLinkedList<T>(Node<T> head) {
         Console.Write("head -> ");
         while (head != null) {
-           Console.Write(head.ToString());
-           head = head.Next;
+            Console.Write(head.ToString());
+            head = head.Next;
         }
+
         Console.Write("null");
     }
 
@@ -31,11 +34,12 @@ public class Node<T>
                     node.Next = new Node<T>(element, null);
                     added = true;
                 }
+
                 node = node.Next;
             }
-            
         }
     }
+
     public static Node<T> CreateSingleLinkedList<T>(params T[] arr) {
         if (arr == null || arr.Length == 0) return null;
         var head = new Node<T>(arr[0], null);
@@ -62,9 +66,18 @@ public class Node<T>
 
         return preview;
     }
-    
-    public static void MoveLastNodeToFront<T>(ref Node<T> head)
-    {
-        throw new NotImplementedException();
+
+    public static void MoveLastNodeToFront<T>(ref Node<T> head) {
+        var node = head;
+        if (node != null && node.Next != null) {
+            while (node.Next.Next != null) {
+                node = node.Next;
+            }
+
+            var elementToMove = node.Next;
+            node.Next = null;
+            elementToMove.Next = head;
+            head = elementToMove;
+        }
     }
 }
