@@ -80,4 +80,26 @@ public class Node<T> {
             head = elementToMove;
         }
     }
+
+    public static void RemoveNodeAt<T>(int position, ref Node<T> head) {
+        var node = head;
+        if (node != null) {
+            Node<T> preview = null;
+            var index = 0;
+            while (index != position && node.Next != null) {
+                preview = node;
+                node = node.Next;
+                index++;
+            }
+
+            if (index == position) {
+                if (preview != null) {
+                   preview.Next = node.Next; 
+                }
+                else {
+                    head = node.Next;
+                }
+            }
+        }
+    }
 }
