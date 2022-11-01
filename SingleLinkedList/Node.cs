@@ -47,4 +47,24 @@ public class Node<T>
 
         return head;
     }
+
+    public static Node<T> ReverseSingleLinkedList<T>(Node<T> head) {
+        if (head == null) return null;
+        var current = head;
+        Node<T> preview = null;
+        Node<T> next = null;
+        while (current != null) {
+            next = current.Next;
+            current.Next = preview;
+            preview = current;
+            current = next;
+        }
+
+        return preview;
+    }
+    
+    public static void MoveLastNodeToFront<T>(ref Node<T> head)
+    {
+        throw new NotImplementedException();
+    }
 }
