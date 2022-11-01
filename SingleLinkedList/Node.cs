@@ -1,4 +1,6 @@
-﻿namespace SingleLinkedList;
+﻿using System.Runtime.InteropServices;
+
+namespace SingleLinkedList;
 
 public class Node<T> {
     public T Data { get; set; }
@@ -108,9 +110,25 @@ public class Node<T> {
         if (head != null) {
             var current = head;
             Node<T> preview = null;
-            while (current.Next != null) {
-                if (preview != null) {
-                    if (preview.Data.Equals(current.Data)) {
+            Node<T> rememberedDuplicate = null;
+            while (current!=null && current.Next != null) {
+                if (rememberedDuplicate == null || !current.Data.Equals(rememberedDuplicate.Data)) {
+                    preview = current;
+                    current = current.Next;
+                }
+                
+                if ((preview != null && preview.Data.Equals(current.Data)) ||
+                    (rememberedDuplicate != null && rememberedDuplicate.Data.Equals(current.Data))) {
+                    rememberedDuplicate = preview;
+                    preview = null;
+                    head = current.Next;
+                    current = head;
+                }
+
+                if (current != null && current.Next != null) {
+                    if ((preview != null && preview.Data.Equals(current.Next.Data)) || (rememberedDuplicate != null &&
+                            rememberedDuplicate.Data.Equals(current.Next.Data))) {
+                        rememberedDuplicate = preview;
                         if (current.Next != null) {
                             preview.Next = current.Next;
                             current = current.Next;
@@ -119,11 +137,6 @@ public class Node<T> {
                             preview.Next = null;
                         }
                     }
-                }
-
-                if (preview == null || !preview.Data.Equals(current.Data)) {
-                    preview = current;
-                    current = current.Next;
                 }
             }
         }
