@@ -111,12 +111,12 @@ public class Node<T> {
             var current = head;
             Node<T> preview = null;
             Node<T> rememberedDuplicate = null;
-            while (current!=null && current.Next != null) {
+            while (current != null && current.Next != null) {
                 if (rememberedDuplicate == null || !current.Data.Equals(rememberedDuplicate.Data)) {
                     preview = current;
                     current = current.Next;
                 }
-                
+
                 if ((preview != null && preview.Data.Equals(current.Data)) ||
                     (rememberedDuplicate != null && rememberedDuplicate.Data.Equals(current.Data))) {
                     rememberedDuplicate = preview;
@@ -138,6 +138,26 @@ public class Node<T> {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    public static void DistinctElementsInLinkedList<T>(ref Node<T> head)
+        where T : IEquatable<T>, IComparable<T> {
+        if (head != null) {
+            var fast = head;
+            var slow = head;
+            while (fast.Next != null) {
+                fast = fast.Next;
+                if (!fast.Data.Equals(slow.Data)) {
+                    slow.Next = fast;
+                    slow = slow.Next;
+                }
+
+                if (fast.Data.Equals(slow.Data) && fast.Next == null) {
+                    slow.Next = null;
+                }
+                
             }
         }
     }
