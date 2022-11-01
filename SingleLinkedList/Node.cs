@@ -147,17 +147,31 @@ public class Node<T> {
         if (head != null) {
             var fast = head;
             var slow = head;
-            while (fast.Next != null) {
-                fast = fast.Next;
-                if (!fast.Data.Equals(slow.Data)) {
-                    slow.Next = fast;
-                    slow = slow.Next;
-                }
+            Node<T> previous = null;
+            while (slow != null) {
+                while (fast != null) {
+                    if (previous == null) {
+                        previous = fast;
+                        fast = fast.Next;
+                        if (fast != null && previous.Data.Equals(fast.Data)) {
+                            previous.Next = fast.Next;
+                        }
+                    }
 
-                if (fast.Data.Equals(slow.Data) && fast.Next == null) {
-                    slow.Next = null;
+                    if (fast != null) {
+                        if (fast.Data.Equals(slow.Data)) {
+                            previous.Next = fast.Next;
+                        }
+                        if(!previous.Data.Equals(fast.Data)) {
+                            previous = previous.Next;
+                        }
+                        fast = fast.Next;
+                    }
+
                 }
-                
+                previous = null;
+                slow = slow.Next;
+                fast = slow;
             }
         }
     }

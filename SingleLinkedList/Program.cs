@@ -1,6 +1,6 @@
 ﻿using SingleLinkedList;
 
-var head = Node<char>.CreateSingleLinkedList<char>('a', 'a', 'c');
-Node<char>.PrintSingleLinkedList<char>(head);
-Node<char>.DistinctElementsInLinkedList<char>(ref head);
-Node<char>.PrintSingleLinkedList<char>(head);
+var head = Node<int>.CreateSingleLinkedList(1, 1);
+Node<int>.PrintSingleLinkedList(head);
+Node<int>.DistinctElementsInLinkedList(ref head);
+Node<int>.PrintSingleLinkedList(head);
