@@ -94,10 +94,36 @@ public class Node<T> {
 
             if (index == position) {
                 if (preview != null) {
-                   preview.Next = node.Next; 
+                    preview.Next = node.Next;
                 }
                 else {
                     head = node.Next;
+                }
+            }
+        }
+    }
+
+    public static void RemoveAllDuplicatesFromSortedLinkedList<T>(ref Node<T> head)
+        where T : IEquatable<T>, IComparable<T> {
+        if (head != null) {
+            var current = head;
+            Node<T> preview = null;
+            while (current.Next != null) {
+                if (preview != null) {
+                    if (preview.Data.Equals(current.Data)) {
+                        if (current.Next != null) {
+                            preview.Next = current.Next;
+                            current = current.Next;
+                        }
+                        else {
+                            preview.Next = null;
+                        }
+                    }
+                }
+
+                if (preview == null || !preview.Data.Equals(current.Data)) {
+                    preview = current;
+                    current = current.Next;
                 }
             }
         }
