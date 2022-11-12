@@ -151,12 +151,6 @@ public interface IMultiSet<T> : ICollection<T>, IEnumerable<T> {
         public static IMultiSet<T> Empty { get; }
 
         /*
-        // Konstruktor, tworzy pusty multizbiór
-        public MultiSet();
-
-        // Konstruktor, tworzy pusty multizbiór, w którym równość elementów zdefiniowana jest
-        // za pomocą obiektu `comparer`
-        public MultiSet(IEqualityComparer<T> comparer)
 
         // Konstruktor, tworzy multizbiór wczytując wszystkie elementy z `sequence`
         public MultiSet(IEnumerable<T> sequence)

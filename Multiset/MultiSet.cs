@@ -8,7 +8,17 @@ public class MultiSet<T>: IMultiSet<T> {
     public MultiSet() {
         _dictionary = new Dictionary<T, int>();
     }
-    
+
+    public MultiSet(IEqualityComparer<T> comparer) {
+        _dictionary = new Dictionary<T, int>(comparer);
+    }
+
+    public MultiSet(IEnumerable<T> sequence) {
+        _dictionary = new Dictionary<T, int>();
+        foreach (var element in sequence) {
+            _dictionary.All(a => a.Key != element);
+        }
+    }
     
     public IEnumerator<T> GetEnumerator() {
         throw new NotImplementedException();
