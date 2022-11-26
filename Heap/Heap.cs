@@ -4,7 +4,6 @@ namespace Heap;
 
 public class Heap<T> : IEnumerable<T> where T : IComparable<T> {
     private List<T> list;
-    private IEnumerable<T> _enumerableImplementation;
     public HeapOptions Option { get; }
 
     public int Count => list.Count;

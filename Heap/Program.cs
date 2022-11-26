@@ -1,5 +1,6 @@
 ﻿using Heap;
 
-var heap = new Heap<int>(new List<int> {2, 1, 6, 7, 1, 3}, HeapOptions.MaxHeap);
-foreach(var x in heap)
-    Console.Write(x);
+var heap = new Heap<char>(new char[] { 'd', 'f', 'g', 'o', 'c', 'h'}, HeapOptions.MaxHeap);
+Console.WriteLine(string.Join(' ', heap.ToArray()));
+Console.WriteLine( heap.Delete() );
+Console.WriteLine(string.Join(' ', heap.ToArray()));
