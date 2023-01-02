@@ -1,3 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using CodeRunnerBinTree;
 
-Console.WriteLine("Hello, World!");
+var tree = BinTreeNode<char>.CreateTreeOfChars();
+BinTreeNode<char>.Print(tree);
+
+
+
