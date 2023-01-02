@@ -12,7 +12,13 @@ public class DisjointSet {
     }
 
     public string FindSet(string x) {
-        if (_parent[x] != x) {
+        if (!_parent.ContainsKey(x))
+        {
+            return null;
+        }
+
+        if (_parent[x] != x)
+        {
             _parent[x] = FindSet(_parent[x]);
         }
 
