@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InOutTest", "InOutTest\InOu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendCircle", "FriendCircle\FriendCircle.csproj", "{DD694998-385A-4164-B0F5-D5F4EC2142EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLike", "SQLike\SQLike.csproj", "{0D53EA07-060E-48E2-9BFE-F197AF249F08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{DD694998-385A-4164-B0F5-D5F4EC2142EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD694998-385A-4164-B0F5-D5F4EC2142EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD694998-385A-4164-B0F5-D5F4EC2142EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D53EA07-060E-48E2-9BFE-F197AF249F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D53EA07-060E-48E2-9BFE-F197AF249F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D53EA07-060E-48E2-9BFE-F197AF249F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D53EA07-060E-48E2-9BFE-F197AF249F08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
