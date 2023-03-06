@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendCircle", "FriendCircl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLike", "SQLike\SQLike.csproj", "{0D53EA07-060E-48E2-9BFE-F197AF249F08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egzamin", "Egzamin\Egzamin.csproj", "{D9C472B8-A6D5-4347-BF55-3BA01E0EE43E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egzamin2", "Egzamin2\Egzamin2.csproj", "{9159EE6D-C974-4580-B7D2-9248984ED2A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{0D53EA07-060E-48E2-9BFE-F197AF249F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D53EA07-060E-48E2-9BFE-F197AF249F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D53EA07-060E-48E2-9BFE-F197AF249F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C472B8-A6D5-4347-BF55-3BA01E0EE43E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C472B8-A6D5-4347-BF55-3BA01E0EE43E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C472B8-A6D5-4347-BF55-3BA01E0EE43E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C472B8-A6D5-4347-BF55-3BA01E0EE43E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9159EE6D-C974-4580-B7D2-9248984ED2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9159EE6D-C974-4580-B7D2-9248984ED2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9159EE6D-C974-4580-B7D2-9248984ED2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9159EE6D-C974-4580-B7D2-9248984ED2A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
